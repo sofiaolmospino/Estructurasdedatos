@@ -1,0 +1,181 @@
+// Ejemplostring.cpp : Defines the entry point for the console application.
+//
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//prototipos
+int longitud(string nombre);
+bool compararCadenas(string var1, string var2);
+int numVocales(string nombre);
+string extraerDeString(string nombre, int pos, int cont);
+string intercambiar(string nombre, string var2);
+int encontrarChar(string nombre, string var2);
+string invertir(string nombre);
+bool palindromo(string nombre);
+void quitarVocal(string nombre, string var2);
+
+
+void main()
+{
+	int longitud, cont, pos, op;
+	char aux;
+	string var1, var2, nombre; 
+
+	do {
+		cout << "***************MENU***************" << endl;
+		cout << "1. Obtener longitud." << endl;
+		cout << "2. Comparar cadenas." << endl;
+		cout << "3. Numero de vocales." << endl;
+		cout << "4. Extraer parte de string." << endl;
+		cout << "5. Intercambiar string." << endl;
+		cout << "6. Encontrar caracter en string." << endl;
+		cout << "7. Invertir." << endl;
+		cout << "8. Determinar si es palindromo." << endl;
+		cout << "9. Quitar vocales." << endl;
+		cout << "0. Salir." << endl;
+		cout << "Seleccione una opcion: ";
+		cin >> op;
+
+		switch (op) {
+			case 1:
+				cout << "Ingrese una frase: ";
+				getline(cin, nombre);
+				cout << "Longitud de la frase: " << longitud(nombre) << endl << endl;
+				break;
+			case 2:
+				cout << "Ingrese la frase 1: ";
+				getline(cin, var1);
+				cout << "Ingrese la frase 2: ";
+				getline(cin, var2);
+				compararCadenas(var1, var2);
+				break;
+			case 3:
+				cout << "Ingrese una frase: ";
+				getline(cin, nombre);
+				cout << "Cantidad de vocales: " << numVocales(nombre) << endl << endl;
+				break;
+			case 4:
+				cout << "Ingrese una frase: ";
+				getline(cin, nombre);
+				extraerDeString(nombre, pos, cont);
+				break;
+			case 5:
+				cout << "Ingrese una frase: ";
+				getline(cin, nombre);
+				cout << "Ingrese una segunda frase: ";
+				getline(cin, var2);
+				intercambiar(nombre, var2);
+				break;
+			case 6:
+				encontrarChar(nombre, var2);
+				break;
+			case 7:
+				invertir(nombre);
+				break;
+			case 8:
+				palindromo(nombre);
+				break;
+			case 9:
+				quitarVocal(nombre, var2);
+				break;
+			case 0:
+				cout << "Salir" << endl;
+				cout << "¡Muchas gracias!" << endl;
+				break;
+			default:
+				cout << "Opcion no valida. Vuelva a seleccionar." << endl;
+		}
+	} while (op != 0);
+
+	return 0;
+}
+
+
+int longitud(string nombre) {
+	int longitud = nombre.length();
+	return longitud;
+}
+
+bool compararCadenas(string var1, string var2) {
+	cout << endl << "Ejemplo de uso de compare para determinar si dos cadenas son iguales";
+	if (var1.compare(var2) == 0)
+	return true;
+	else
+		cout << var1 << " es diferente que " << var2 << "." << endl;
+	return false;
+}
+
+int numVocales(string nombre) {
+	int cont = 0;
+	cout << endl << "Ejemplo de uso de elementos individuales con at: " << endl;
+	cont = 0;
+	for (int i = 0; i < longitud; i++)
+		if (nombre.at(i) == 'a' || nombre.at(i) == 'e' || nombre.at(i) == 'i' || nombre.at(i) == 'o' || nombre.at(i) == 'u')
+			cont++;
+	cout << "Numero de vocales: " << cont << endl;
+}
+
+void extraerDeString(string nombre, int pos, int cont) {
+	cout << endl << "Ingrese desde donde desea extraer el substring: ";
+	cin >> pos;
+	cout << nombre.substr(pos, longitud - pos);
+	cin.ignore();
+}
+
+void intercambiar(string nombre, string var2) {
+	cout << endl << "Intercambia variables";
+	nombre.swap(var2);
+	cout << nombre;
+	cout << var2;
+}
+
+int encontrarChar(string nombre, string var2) {
+	cout << var2.find(' ');
+	int longitud = var2.length();
+	for (int i = 0; i < longitud; i++)
+		if (var2.at(i) == ' ')
+			cout << endl << "Existe un espacio en: " << i;
+}
+
+string invertir(string nombre) {
+	string var2 = nombre;
+	char aux;
+	int longitud = nombre.length();
+	for (int i = 0; i < longitud / 2; i++)
+	{
+		aux = nombre[i];
+		nombre[i] = nombre[longitud - 1 - i];
+		nombre[longitud - 1 - i] = aux;
+	}
+}
+
+bool palindromo(string nombre) {
+	string var2 = nombre;
+	char aux;
+	int longitud = nombre.length();
+	for (int i = 0; i < longitud / 2; i++)
+	{
+		aux = nombre[i];
+		nombre[i] = nombre[longitud - 1 - i];
+		nombre[longitud - 1 - i] = aux;
+	}
+	if (var2.compare(nombre) == 0)
+		return true;
+}
+
+void quitarVocal(string nombre, string var2) {
+	var2 = nombre;
+	int cont = 0;
+	int longitud = nombre.length();
+	for (int i = 0; i < longitud; i++)
+		if (nombre[i] != 'a' && nombre[i] != 'e' && nombre[i] != 'i' && nombre[i] != 'o' && nombre[i] != 'u')
+		{
+			var2[cont] = nombre[i];
+			cont++;
+		}
+	cout << "Sin vocales es: " << var2;
+}
+	
