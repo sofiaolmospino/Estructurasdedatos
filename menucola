@@ -96,11 +96,11 @@ int main()
     do {
         cout << "----- MENU -----" << endl;
         cout << "1. Llenar cola"<<endl;
-        cout << "2. Vaciar cola" << endl;
+        cout << "2. Desencolar" << endl;
         cout << "3. Mostrar cola"<<endl;
         cout << "4. Mostrar tamano de cola" << endl;
         cout << "0. Salir" << endl;
-
+        cout << "Seleccione una opcion:";
         cin >> opcion;
 
         switch (opcion) {
