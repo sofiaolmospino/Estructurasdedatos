@@ -60,10 +60,10 @@ void Cola::encolar() {
 
     system("cls");
     cout << "Titulo: ";
-    cin >> aux->song.titulo;
+    cin.ignore();
+    getline(cin, aux->song.titulo);
 
     cout << "Autor: ";
-    cin.ignore();
     getline(cin, aux->song.autor);
 
     cout << "Album: ";
