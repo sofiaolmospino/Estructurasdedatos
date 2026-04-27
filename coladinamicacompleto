@@ -100,10 +100,10 @@ void Cola::desencolar() {
         inicio = inicio->sig;
 
         if (inicio == NULL) {
-            fin = NULL; // 🔥 importante
+            fin = NULL;
         }
 
-        delete temp; // 🔥 liberar memoria
+        delete temp; 
 
         system("pause");
     }
