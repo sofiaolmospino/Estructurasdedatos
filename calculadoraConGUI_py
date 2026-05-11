@@ -38,7 +38,7 @@ def bolivianos_a_soles():
         comision = soles_final - soles
 
         resultado.set(
-            f"💵 CONVERSIÓN REALIZADA\n\n"
+            f"💵 CONVERSIÓN REALIZADA\n"
             f"USDT obtenidos: {usdt:.4f}\n"
             f"Cliente recibe: S/ {soles:.2f}\n"
             f"Tu comisión: S/ {comision:.2f} ({porcentaje}%)\n"
@@ -67,7 +67,7 @@ def soles_a_bolivianos():
         bolivianos = usdt * compra_usdt_bs
 
         resultado.set(
-            f"💸 CONVERSIÓN REALIZADA\n\n"
+            f"💸 CONVERSIÓN REALIZADA\n"
             f"Cliente entrega: S/ {soles:.2f}\n"
             f"Tu comisión: S/ {comision:.2f} ({porcentaje}%)\n"
             f"Total recibido: S/ {soles_con_comision:.2f}\n"
